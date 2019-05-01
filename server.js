@@ -21,10 +21,15 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // This lets the client viewing the database to create the database on their computers.  You can use mLab in Heroku to define a database/user/password combination as well (remember to use the .env password obscuration process to avoid posting your 'password' to GitHub or you will get a worried email from one of the automated "your credentials are exposed" emails)
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
-  useCreateIndex: true,
-  useNewUrlParser: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://books:password1@ds147436.mlab.com:47436/heroku_n2mpmn03" ||
+    "mongodb://localhost/googlebooks",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
+);
 
 // assigns the port for the purpose of URL address for inquisiting clients
 app.listen(PORT, () =>
