@@ -1,5 +1,4 @@
 // our Google query is not a query on our mongo db, but rather calls a google search API and returns the results in json format
-
 const axios = require("axios");
 const db = require("../models");
 
@@ -21,7 +20,7 @@ module.exports = {
             result.volumeInfo.imageLinks.thumbnail
         )
       )
-  // The purpose of this then statement is to filter out the list of displayed books the ones that are saved (you don't need to see them anymore.   It may be more cool to show the already saved books, but just leave the save button)    
+      // The purpose of this then statement is to filter out the list of displayed books the ones that are saved (you don't need to see them anymore.   It may be more cool to show the already saved books, but just leave the save button)
       .then(apiBooks =>
         db.Book.find().then(dbBooks =>
           apiBooks.filter(apiBook =>
