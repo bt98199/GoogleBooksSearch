@@ -1,3 +1,5 @@
+// Boilerplate React "starting file" that quickly points the user to the main App.js file
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";

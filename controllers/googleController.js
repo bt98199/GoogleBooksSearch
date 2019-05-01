@@ -21,6 +21,7 @@ module.exports = {
             result.volumeInfo.imageLinks.thumbnail
         )
       )
+  // The purpose of this then statement is to filter out the list of displayed books the ones that are saved (you don't need to see them anymore.   It may be more cool to show the already saved books, but just leave the save button)    
       .then(apiBooks =>
         db.Book.find().then(dbBooks =>
           apiBooks.filter(apiBook =>
